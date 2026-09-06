@@ -20,7 +20,7 @@
 ### 💫 About Me
 
 ```yaml
-name: Duy Pham (Hao)
+name: Nguyen Hoang Hao
 pronouns: he/him
 focus: Full-Stack Web Development, Modern UI/UX, AI/ML
 interests: [Building cool projects, Clean Code, Open Source]
@@ -47,41 +47,27 @@ motto: "Constantly learning, continuously evolving 🚀"
   <summary><b>📂 Categorized Skills Breakdown</b></summary>
   <br/>
 
-| Category | Technologies |
-| :--- | :--- |
-| **Frontend** | `JavaScript`, `TypeScript`, `Vue.js`, `React`, `HTML5`, `CSS3`, `Tailwind CSS` |
-| **Backend & Languages** | `Node.js`, `Python`, `PHP`, `Java` |
-| **Databases** | `MySQL`, `PostgreSQL`, `MongoDB` |
-| **Tools & DevOps** | `Git`, `GitHub`, `Docker`, `Postman`, `VS Code`, `Figma` |
+| Category                | Technologies                                                                   |
+| :---------------------- | :----------------------------------------------------------------------------- |
+| **Frontend**            | `JavaScript`, `TypeScript`, `Vue.js`, `React`, `HTML5`, `CSS3`, `Tailwind CSS` |
+| **Backend & Languages** | `Node.js`, `Python`, `PHP`, `Java`                                             |
+| **Databases**           | `MySQL`, `PostgreSQL`, `MongoDB`                                               |
+| **Tools & DevOps**      | `Git`, `GitHub`, `Docker`, `Postman`, `VS Code`, `Figma`                       |
 
 </details>
 
----
-
-### 📊 GitHub Analytics
-
-<div align="center">
-  <p align="center">
-    <img src="https://github-stats-extended.vercel.app/api?username=hao05dev&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="hao05dev's GitHub stats" height="165" />
-    <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=hao05dev&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" height="165" />
-  </p>
-  <p align="center">
-    <img src="https://streak-stats.demolab.com/?user=hao05dev&theme=tokyonight&hide_border=true" alt="hao05dev streak" />
-  </p>
-</div>
-
----
+<!--  -->
 
 ### 📬 Connect With Me
 
 <p align="center">
-  <a href="mailto:your_email@gmail.com" target="_blank">
+  <a href="mailto:hau05.ruan@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
   </a>
   <a href="https://www.linkedin.com/in/your_profile" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://facebook.com/your_profile" target="_blank">
+  <a href="https://www.facebook.com/nguyen.hao.230457/" target="_blank">
     <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" />
   </a>
   <a href="https://github.com/hao05dev" target="_blank">
