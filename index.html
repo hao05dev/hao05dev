@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Hoang Hao — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      background-color: #EAE3DE;
+    }
+
+    :root {
+      --ink: #175A67;
+      --ink-soft: #2A707C;
+      --cream: #EAE3DE;
+      --max: 1440px;
+      --fs-nav: clamp(.9rem, .55vw + .75rem, 1.02rem);
+    }
+
+    body {
+      font-family: 'Poppins', "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Accessibility utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Footer container */
+    .site-footer {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      background-color: var(--cream);
+      padding: clamp(2.25rem, 4.5vh, 4rem)
+               max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right))
+               max(clamp(1.5rem, 3vh, 2.75rem), env(safe-area-inset-bottom))
+               max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
+    }
+
+    /* Video Media container - Desktop (full bleed, no scrim) */
+    .footer-media {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .footer-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      pointer-events: none;
+      animation: fade-in 1.35s ease both;
+    }
+
+    .footer-inner {
+      position: relative;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Grid layout */
+    .footer-grid {
+      display: grid;
+      align-items: start;
+      gap: clamp(1.5rem, 3vw, 3.25rem);
+      grid-template-columns: minmax(240px, 1.45fr) repeat(3, minmax(130px, .85fr)) minmax(260px, 1.25fr);
+    }
+
+    /* Brand block */
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: clamp(.65rem, 1vw, 1rem);
+    }
+
+    .brand-mark {
+      width: clamp(52px, 4.4vw, 74px);
+      height: auto;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.85rem, 2.5vw, 2.9rem);
+      line-height: 1;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .brand-blurb {
+      margin-top: clamp(1.15rem, 2.4vh, 1.9rem);
+      max-width: 24ch;
+      line-height: 1.62;
+      font-size: var(--fs-nav);
+    }
+
+    /* Contact list */
+    .contact-list {
+      list-style: none;
+      margin-top: clamp(1.15rem, 2.4vh, 1.9rem);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(.6rem, 1.2vh, .95rem);
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      font-size: var(--fs-nav);
+    }
+
+    .contact-list svg {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .contact-list a {
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Navigation Columns */
+    .col-title {
+      margin: 0 0 clamp(1.15rem, 2.4vh, 1.85rem);
+      font-size: clamp(.95rem, .5vw + .8rem, 1.12rem);
+      font-weight: 600;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(.62rem, 1.35vh, 1.05rem);
+      font-size: var(--fs-nav);
+    }
+
+    .link-list li {
+      display: block;
+    }
+
+    .link-list a {
+      display: inline-block;
+      text-decoration: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .link-list a:hover {
+      opacity: .62;
+      transform: translateX(2px);
+    }
+
+    /* Newsletter Column */
+    .newsletter p {
+      margin: 0 0 clamp(1rem, 2.2vh, 1.6rem);
+      max-width: 32ch;
+      line-height: 1.62;
+      font-size: var(--fs-nav);
+    }
+
+    .subscribe {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 380px;
+      border: 1px solid var(--ink);
+      background: rgba(255, 255, 255, .4);
+    }
+
+    .subscribe input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: .95rem 1.05rem;
+      font-family: inherit;
+      font-size: var(--fs-nav);
+      color: var(--ink);
+    }
+
+    .subscribe input::placeholder {
+      color: var(--ink-soft);
+      opacity: .85;
+    }
+
+    .subscribe input:focus-visible {
+      box-shadow: inset 0 0 0 2px rgba(23, 90, 103, .25);
+    }
+
+    .subscribe button {
+      width: clamp(56px, 4vw, 66px);
+      border: 0;
+      background: var(--ink);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .subscribe button:hover {
+      background: #0F454F;
+    }
+
+    .subscribe button svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      margin-top: auto;
+      padding-top: clamp(2.5rem, 6vh, 4.5rem);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .socials {
+      display: flex;
+      flex-direction: row;
+      gap: clamp(.9rem, 1.5vw, 1.5rem);
+      align-items: center;
+    }
+
+    .socials a {
+      display: inline-flex;
+      color: var(--ink);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .socials svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .socials a:hover {
+      opacity: .65;
+      transform: translateY(-2px);
+    }
+
+    .legal {
+      display: flex;
+      flex-direction: row;
+      gap: clamp(1.15rem, 2.6vw, 3rem);
+      flex-wrap: wrap;
+      font-size: var(--fs-nav);
+    }
+
+    .legal a:hover {
+      text-decoration: underline;
+    }
+
+    /* ENTRANCE ANIMATIONS */
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .brand-lockup,
+    .brand-blurb,
+    .contact-list li,
+    .col .col-title,
+    .col .link-list li,
+    .newsletter .col-title,
+    .newsletter p,
+    .subscribe,
+    .socials a,
+    .legal a {
+      animation: rise-in .72s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    .brand-lockup { animation-delay: .04s; }
+    .brand-blurb { animation-delay: .12s; }
+
+    .contact-list li:nth-child(1) { animation-delay: .2s; }
+    .contact-list li:nth-child(2) { animation-delay: .28s; }
+    .contact-list li:nth-child(3) { animation-delay: .36s; }
+
+    .footer-grid > .col:nth-child(2) { --col-stagger: .16s; }
+    .footer-grid > .col:nth-child(3) { --col-stagger: .24s; }
+    .footer-grid > .col:nth-child(4) { --col-stagger: .32s; }
+
+    .col .col-title {
+      animation-delay: var(--col-stagger, .2s);
+    }
+
+    .col .link-list li:nth-child(1) { animation-delay: calc(var(--col-stagger, .2s) + .08s); }
+    .col .link-list li:nth-child(2) { animation-delay: calc(var(--col-stagger, .2s) + .16s); }
+    .col .link-list li:nth-child(3) { animation-delay: calc(var(--col-stagger, .2s) + .24s); }
+    .col .link-list li:nth-child(4) { animation-delay: calc(var(--col-stagger, .2s) + .32s); }
+    .col .link-list li:nth-child(5) { animation-delay: calc(var(--col-stagger, .2s) + .40s); }
+    .col .link-list li:nth-child(6) { animation-delay: calc(var(--col-stagger, .2s) + .48s); }
+
+    .newsletter .col-title { animation-delay: .4s; }
+    .newsletter p { animation-delay: .48s; }
+    .subscribe { animation-delay: .56s; }
+
+    .socials a:nth-child(1) { animation-delay: .64s; }
+    .socials a:nth-child(2) { animation-delay: .70s; }
+    .socials a:nth-child(3) { animation-delay: .76s; }
+    .socials a:nth-child(4) { animation-delay: .82s; }
+
+    .legal a:nth-child(1) { animation-delay: .7s; }
+    .legal a:nth-child(2) { animation-delay: .78s; }
+    .legal a:nth-child(3) { animation-delay: .86s; }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: clamp(2rem, 4vh, 2.75rem);
+      }
+      .brand, .newsletter {
+        grid-column: 1 / -1;
+      }
+      .brand-blurb {
+        max-width: 42ch;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-footer {
+        height: auto;
+        min-height: 100svh;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        overflow-x: hidden;
+        overflow-y: visible;
+      }
+      .footer-inner {
+        order: 0;
+        padding-right: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right));
+        padding-left: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
+        padding-bottom: clamp(1.25rem, 3vh, 2rem);
+      }
+      .footer-media {
+        position: relative;
+        inset: auto;
+        order: 1;
+        flex-shrink: 0;
+        width: 100%;
+        height: auto;
+        margin-top: auto;
+        z-index: 0;
+      }
+      .footer-bg {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+        transform: none;
+        display: block;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1.75rem, 5vw, 2.25rem);
+      }
+      .brand-blurb {
+        max-width: 34ch;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-top: clamp(2rem, 7vh, 3rem);
+        padding-bottom: clamp(1.25rem, 3vh, 2rem);
+      }
+      .legal {
+        gap: 1.1rem 1.5rem;
+      }
+      .link-list {
+        gap: .2rem;
+      }
+      .link-list a {
+        padding: .55rem 0;
+      }
+      .contact-list {
+        gap: .25rem;
+      }
+      .contact-list a, .contact-list span {
+        padding: .4rem 0;
+      }
+      .legal a {
+        padding: .45rem 0;
+      }
+      .socials a {
+        padding: .3rem;
+        margin: -.3rem;
+      }
+      .socials svg {
+        width: 28px;
+        height: 28px;
+      }
+      .subscribe input {
+        font-size: 16px;
+        padding: 1rem 1.05rem;
+      }
+    }
+
+    @media (max-width: 440px) {
+      :root {
+        --fs-nav: .92rem;
+      }
+      .footer-grid {
+        gap: 1.35rem 1.25rem;
+      }
+      .col-title {
+        margin-bottom: .85rem;
+      }
+      .brand-blurb, .newsletter p {
+        max-width: none;
+      }
+      .subscribe {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 359px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 721px) and (max-width: 1100px) {
+      .site-footer {
+        height: auto;
+        min-height: 100svh;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        overflow-x: hidden;
+        overflow-y: visible;
+      }
+      .footer-inner {
+        order: 0;
+        padding-right: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right));
+        padding-left: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
+        padding-bottom: clamp(1.25rem, 3vh, 2rem);
+      }
+      .footer-media {
+        position: relative;
+        inset: auto;
+        order: 1;
+        flex-shrink: 0;
+        width: 100%;
+        height: auto;
+        margin-top: auto;
+        z-index: 0;
+      }
+      .footer-bg {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+        transform: none;
+        display: block;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .footer-media::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: clamp(52px, 16vw, 120px);
+        pointer-events: none;
+        z-index: 1;
+        background: linear-gradient(to bottom, #EAE3DE 0%, rgba(234, 227, 222, .65) 38%, rgba(234, 227, 222, 0) 100%);
+      }
+    }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      .footer-bg {
+        display: none;
+        animation: none;
+      }
+      .site-footer {
+        background-color: #EAE3DE;
+        background-image: url("https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4f690bd1-881a-4192-82f2-d714d34c8fb9.png");
+        background-position: center bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      @media (max-width: 1100px) {
+        .site-footer {
+          background-size: 100% auto;
+        }
+      }
+      .footer-media::after {
+        content: none;
+      }
+      .brand-lockup,
+      .brand-blurb,
+      .contact-list li,
+      .col .col-title,
+      .col .link-list li,
+      .newsletter .col-title,
+      .newsletter p,
+      .subscribe,
+      .socials a,
+      .legal a {
+        animation: none;
+      }
+      .link-list a:hover,
+      .socials a:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer class="site-footer">
+    <div class="footer-media" aria-hidden="true">
+      <video class="footer-bg" autoplay muted loop playsinline preload="auto" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4f690bd1-881a-4192-82f2-d714d34c8fb9.png">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260901_122529_931c22c8-8d2d-47c0-ad51-b97f56a91e42.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="brand">
+          <div class="brand-lockup">
+            <svg class="brand-mark" viewBox="0 0 96 120" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="6" y="8" width="84" height="104" rx="20" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M30 36V84M66 36V84M30 60H66" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="48" cy="22" r="3" fill="currentColor"/>
+              <circle cx="48" cy="98" r="3" fill="currentColor"/>
+            </svg>
+            <h2 class="brand-name">Nguyen Hoang Hao</h2>
+          </div>
+          <p class="brand-blurb">Full-Stack Developer passionate about crafting modern web apps, scalable backends &amp; AI-driven solutions.</p>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <a href="mailto:hau05.ruan@gmail.com">hau05.ruan@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <a href="https://github.com/hao05dev" target="_blank">github.com/hao05dev</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Vietnam 🇻🇳</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Featured Projects Column -->
+        <nav class="col" aria-label="Featured Projects">
+          <h3 class="col-title">Projects</h3>
+          <ul class="link-list">
+            <li><a href="https://github.com/hao05dev/3mienres" target="_blank">3Mien Restaurant</a></li>
+            <li><a href="https://github.com/hao05dev/moviechiuchiu.com" target="_blank">Movie ChiuChiu</a></li>
+            <li><a href="https://github.com/hao05dev/oldPhoto_Colorization" target="_blank">AI Photo Colorize</a></li>
+            <li><a href="https://github.com/hao05dev/phishing-streamlit-app" target="_blank">Phishing Detection</a></li>
+            <li><a href="https://github.com/hao05dev/Spotify_Clone" target="_blank">Spotify Clone</a></li>
+            <li><a href="https://github.com/hao05dev?tab=repositories" target="_blank">View All Repos ↗</a></li>
+          </ul>
+        </nav>
+
+        <!-- Tech Stack Column -->
+        <nav class="col" aria-label="Core Skills">
+          <h3 class="col-title">Tech Stack</h3>
+          <ul class="link-list">
+            <li><a href="#">Vue.js &amp; React</a></li>
+            <li><a href="#">TypeScript / JS</a></li>
+            <li><a href="#">Python &amp; ML</a></li>
+            <li><a href="#">PHP &amp; Node.js</a></li>
+            <li><a href="#">Tailwind &amp; UI/UX</a></li>
+            <li><a href="#">Docker &amp; MySQL</a></li>
+          </ul>
+        </nav>
+
+        <!-- Focus & Expertise Column -->
+        <nav class="col" aria-label="Expertise">
+          <h3 class="col-title">Expertise</h3>
+          <ul class="link-list">
+            <li><a href="#">Web Applications</a></li>
+            <li><a href="#">RESTful API Design</a></li>
+            <li><a href="#">AI / Deep Learning</a></li>
+            <li><a href="#">Database Modeling</a></li>
+            <li><a href="#">Clean Architecture</a></li>
+            <li><a href="#">Performance Tuning</a></li>
+          </ul>
+        </nav>
+
+        <!-- Get In Touch / Message Column -->
+        <div class="newsletter">
+          <h3 class="col-title">Let&rsquo;s Connect</h3>
+          <p>Interested in collaborating or discussing project opportunities? Send a quick note.</p>
+          <form class="subscribe" onsubmit="event.preventDefault(); var val = document.getElementById('nl-email').value; window.location.href = 'mailto:hau05.ruan@gmail.com?subject=Contact%20from%20Portfolio&body=' + encodeURIComponent(val);">
+            <label for="nl-email" class="sr-only">Leave a message or email</label>
+            <input id="nl-email" type="text" name="message" placeholder="Type message or email..." required>
+            <button type="submit" aria-label="Send Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12h15M13 6l6 6-6 6"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="socials">
+          <a href="https://github.com/hao05dev" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/nguyen.hao.230457/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+            </svg>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hau05.ruan@gmail.com" target="_blank" aria-label="Gmail">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+        <nav class="legal" aria-label="Status &amp; Copyright">
+          <a href="https://github.com/hao05dev" target="_blank">Available for Opportunities</a>
+          <span>&copy; 2026 Nguyen Hoang Hao</span>
+          <a href="https://github.com/hao05dev?tab=repositories" target="_blank">All Projects</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
