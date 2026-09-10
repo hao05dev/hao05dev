@@ -8,9 +8,14 @@
     <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&width=500&lines=Full+Stack+Web+Developer+%F0%9F%9A%80;Building+Scalable+%26+Modern+Apps;Exploring+AI+%26+Machine+Learning+%E2%9C%A8;Welcome+to+my+GitHub+Profile!" alt="Typing SVG" />
   </a>
 
-  <!-- Profile Views Badge -->
+  <!-- Profile Views & Live Portfolio Badges -->
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=hao05dev&style=flat-square&color=8b5cf6&label=PROFILE+VIEWS" alt="Profile Views" />
+  </p>
+  <p align="center">
+    <a href="https://hao05dev.github.io/hao05dev/" target="_blank">
+      <img src="https://img.shields.io/badge/🌐_Explore_My_Portfolio_Website-hao05dev.github.io-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio Website" />
+    </a>
   </p>
 
 </div>
