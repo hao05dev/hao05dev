@@ -1,90 +1,70 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { WordsPullUp } from './WordsPullUp';
-import { Navbar } from './Navbar';
+import { ArrowDown, Github } from 'lucide-react';
+import { profile } from '../data';
+import { BrushEdge, Birds } from './Paint';
 
-export const Hero: React.FC = () => {
-  return (
-    <section className="relative w-full h-screen p-4 md:p-6 bg-black">
-      <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        >
-          <source
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
-            type="video/mp4"
-          />
-        </video>
+const painting = './painting.webp';
 
-        {/* Noise Overlay */}
-        <div className="absolute inset-0 noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none" />
+export const Hero: React.FC = () => (
+  <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-cobalt">
+    {/* The painting */}
+    <div
+      className="absolute inset-0 bg-cover animate-slow-zoom"
+      style={{ backgroundImage: `url(${painting})`, backgroundPosition: '50% 70%' }}
+      role="img"
+      aria-label="Painting of a swirling blue sky over a sunflower field, with a painter at an easel"
+    />
+    {/* Legibility wash, from the sky's deep blue */}
+    <div className="absolute inset-0 bg-gradient-to-r from-ultramarine/70 via-ultramarine/25 to-transparent" />
+    <Birds count={4} />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
+    <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl items-center px-5 pt-24 pb-36 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 24, rotate: -2 }}
+        animate={{ opacity: 1, y: 0, rotate: -1 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="relative max-w-xl p-7 sm:p-10"
+      >
+        {/* Canvas panel, like the one on the painter's easel */}
+        <div
+          aria-hidden="true"
+          className="grain absolute inset-0 overflow-hidden bg-cream shadow-[10px_14px_0_rgb(20_32_77/0.35)]"
+          style={{ filter: 'url(#rough-edge)' }}
+        />
+        <div className="relative">
+          <p className="font-hand text-2xl sm:text-3xl text-cobalt">Xin chào, I'm</p>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.95] tracking-tight text-ultramarine [font-variation-settings:'SOFT'_100]">
+            {profile.name}
+          </h1>
+          <p className="mt-4 text-lg sm:text-xl font-semibold text-ink">
+            <span className="brush-underline">{profile.role}</span>
+            <span className="text-ink/60 font-normal"> · {profile.school}</span>
+          </p>
+          <p className="mt-4 text-sm sm:text-base leading-relaxed text-ink/75">{profile.intro}</p>
 
-        {/* Top Centered Navbar */}
-        <Navbar />
-
-        {/* Hero Content (Bottom-aligned) */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-6 md:px-10 pb-4 sm:pb-6 md:pb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-6 lg:gap-8">
-            {/* Left 8 columns: Giant Heading */}
-            <div className="lg:col-span-8 flex items-end">
-              <WordsPullUp
-                text="Prisma"
-                showAsterisk={true}
-                className="text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] font-medium leading-[0.85] tracking-[-0.07em] text-[#E1E0CC]"
-              />
-            </div>
-
-            {/* Right 4 columns: Description + CTA Button */}
-            <div className="lg:col-span-4 flex flex-col justify-end gap-5 sm:gap-6 pb-2 sm:pb-3">
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-primary/70 text-xs sm:text-sm md:text-base leading-[1.2] max-w-md font-light"
-              >
-                Prisma is a digital studio &amp; engineering lab directed by Nguyen Hoang Hao —
-                crafting cinema-grade web platforms, interactive experiences, and AI systems bound by
-                passion and hunger to unlock potential.
-              </motion.p>
-
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.7,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                <a
-                  href="#contact"
-                  className="group inline-flex items-center gap-2 hover:gap-3 bg-primary text-black font-medium text-sm sm:text-base rounded-full pl-5 pr-1.5 py-1.5 transition-all duration-300 shadow-lg hover:bg-white"
-                >
-                  <span>Join the lab</span>
-                  <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-white transition-colors" />
-                  </span>
-                </a>
-              </motion.div>
-            </div>
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full bg-sunflower px-5 py-2.5 text-sm font-semibold text-ink shadow-[3px_4px_0_theme(colors.ochre)] transition-transform hover:-translate-y-0.5"
+            >
+              See my work
+              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-ultramarine px-5 py-2 text-sm font-semibold text-ultramarine transition-colors hover:bg-ultramarine hover:text-cream"
+            >
+              <Github className="h-4 w-4" />
+              GitHub
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </motion.div>
+    </div>
 
-export default Hero;
+    <BrushEdge color="#efe4c4" grain className="absolute bottom-0 left-0 z-10" />
+  </section>
+);
