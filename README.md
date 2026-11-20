@@ -1,88 +1,77 @@
 <div align="center">
 
-  <!-- Header Banner -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,50:8b5cf6,100:ec4899&height=200&section=header&text=Hi%20there,%20I'm%20Hao%20👋&fontSize=42&fontAlignY=38&fontColor=ffffff&desc=Passionate%20Developer%20%7C%20Tech%20Enthusiast&descFontSize=20&descAlignY=60&descAlign=50" width="100%"/>
+  <!-- Banner: the swirling-sky sunflower painting -->
+  <img src="./painting.webp" alt="Swirling blue sky over a sunflower field, with a painter at an easel" width="100%" />
 
-  <!-- Dynamic Typing Subtitle -->
+  <h1>Xin chào, I'm Nguyễn Hoàng Hào 🌻</h1>
+
   <a href="https://github.com/hao05dev">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&width=500&lines=Full+Stack+Web+Developer+%F0%9F%9A%80;Building+Scalable+%26+Modern+Apps;Exploring+AI+%26+Machine+Learning+%E2%9C%A8;Welcome+to+my+GitHub+Profile!" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fraunces&weight=600&size=22&duration=3200&pause=900&color=2C56C4&center=true&vCenter=true&width=560&lines=Full-stack+Developer;Spring+Boot+%C2%B7+React+%C2%B7+PostgreSQL;IT+student+%40+Can+Tho+University" alt="Typing SVG" />
   </a>
 
-  <!-- Profile Views & Live Portfolio Badges -->
-  <p align="center">
-    <img src="https://komarev.com/ghpvc/?username=hao05dev&style=flat-square&color=8b5cf6&label=PROFILE+VIEWS" alt="Profile Views" />
-  </p>
-  <p align="center">
-    <a href="https://hao05dev.github.io/hao05dev/" target="_blank">
-      <img src="https://img.shields.io/badge/🌐_Explore_My_Portfolio_Website-hao05dev.github.io-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio Website" />
+  <p>
+    <a href="https://hao05dev.github.io/hao05dev/">
+      <img src="https://img.shields.io/badge/Portfolio-hao05dev.github.io-1b2f7a?style=for-the-badge&labelColor=f4b625&logo=googlechrome&logoColor=1b2f7a" alt="Portfolio" />
     </a>
+    <img src="https://komarev.com/ghpvc/?username=hao05dev&style=for-the-badge&color=1b2f7a&label=PROFILE+VIEWS" alt="Profile views" />
   </p>
 
 </div>
 
----
+I build web systems end to end — **Spring Boot** APIs, **React** front-ends, **PostgreSQL** schemas — and ship them with **Docker**. Most of what I make starts from a real workflow: a clinic, an internship office, a restaurant floor.
 
-### 💫 About Me
-
-```yaml
-name: Nguyen Hoang Hao
-pronouns: he/him
-focus: Full-Stack Web Development, Modern UI/UX, AI/ML
-interests: [Building cool projects, Clean Code, Open Source]
-motto: "Constantly learning, continuously evolving 🚀"
-```
-
-- 🔭 **Currently working on:** Web applications, full-stack systems, and creative tools.
-- 🌱 **Currently learning:** Advanced frontend architectures, backend scalability, and AI integrations.
-- 💡 **Passion:** Solving real-world problems through clean, optimized, and intuitive code.
-- 💬 **Ask me about:** JavaScript / TypeScript, Vue, React, Python, PHP, or anything web-related!
-- ⚡ **Fun fact:** Code and coffee are the perfect match ☕.
+- 🎓 Studying Information Technology at **Can Tho University (CTU)**
+- 🔨 Building **InternLink** — the graduation-internship portal for CICT
+- 🧭 Map the workflow → model the data → build API & UI → ship with Docker & CI
 
 ---
 
-### 🛠️ Tech Stack & Tools
+### 🖌️ Selected work
+
+| Project | What it is | Built with |
+| :-- | :-- | :-- |
+| [**InternLink**](https://github.com/hao05dev/Internlink-v1-backend) | Internship portal for CICT: 7 roles, tripartite agreements, weekly logs, rubric/CLO grading | Spring Boot 3 · Java 21 · Next.js 14 · PostgreSQL + pgvector |
+| [**Family Medicine CDSS**](https://github.com/hao05dev/family_medicine) | Clinical decision support: dynamic diagnostic forms, risk analysis, results via email/Zalo | Spring Boot · React · Docker |
+| [**ToyToiShop**](https://github.com/hao05dev/toitoyshop) | E-commerce for collectibles: VNPay & VietQR, FP-Growth recommendations, RBAC | Spring Boot 3 · React 19 · PostgreSQL |
+| [**LifeFlow**](https://github.com/hao05dev/HelloTask) | Personal planner: Kanban, habits, SM-2 spaced repetition, budgets | Spring Boot · MySQL · Redis · RabbitMQ · React + TS |
+| [**3 Miền Cua**](https://github.com/hao05dev/3mienres) | Restaurant booking & floor management: tables, orders, stock, revenue | Vue.js · Express |
+| [**MovieChiuChiu**](https://github.com/hao05dev/moviechiuchiu.com) | Movie streaming site on a hand-rolled PHP MVC, OAuth, auto crawler | PHP · Twig |
+
+**On the side — machine learning:** [Old Photo Colorization](https://github.com/hao05dev/oldPhoto_Colorization) (U-Net / Pix2Pix, PyTorch) · [Phishing Website Detection](https://github.com/hao05dev/phishing_websites) (Random Forest, scikit-learn, Streamlit)
+
+---
+
+### 🎨 Palette — tools I've worked with
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,javascript,typescript,vue,react,tailwind,nodejs,php,python,java,mysql,git,github,docker,figma,postman,vscode&perline=9" />
+    <img src="https://skillicons.dev/icons?i=java,spring,nodejs,express,php,py,react,ts,nextjs,vue,tailwind&perline=11" alt="Languages and frameworks" />
+    <br />
+    <img src="https://skillicons.dev/icons?i=postgres,mysql,redis,rabbitmq,docker,githubactions,git,pytorch,sklearn,postman,figma&perline=11" alt="Data, infra and tools" />
   </a>
 </p>
 
-<details open>
-  <summary><b>📂 Categorized Skills Breakdown</b></summary>
-  <br/>
-
-| Category                | Technologies                                                                   |
-| :---------------------- | :----------------------------------------------------------------------------- |
-| **Frontend**            | `JavaScript`, `TypeScript`, `Vue.js`, `React`, `HTML5`, `CSS3`, `Tailwind CSS` |
-| **Backend & Languages** | `Node.js`, `Python`, `PHP`, `Java`                                             |
-| **Databases**           | `MySQL`, `PostgreSQL`, `MongoDB`                                               |
-| **Tools & DevOps**      | `Git`, `GitHub`, `Docker`, `Postman`, `VS Code`, `Figma`                       |
-
-</details>
-
-<!--  -->
-
-### 📬 Connect With Me
-
-<p align="center">
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hau05.ruan@gmail.com" target="_blank">
-  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-  </a>
-  <a href="https://www.linkedin.com/in/your_profile" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://www.facebook.com/nguyen.hao.230457/" target="_blank">
-    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" />
-  </a>
-  <a href="https://github.com/hao05dev" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
-</p>
+| | |
+| :-- | :-- |
+| **Backend** | Java, Spring Boot, Spring Security · JWT, JPA / Hibernate, Node.js · Express, PHP · Twig, FastAPI |
+| **Frontend** | React, TypeScript, Next.js, Vue.js, Tailwind CSS, React Query · Zustand |
+| **Data & Infra** | PostgreSQL, MySQL, Redis, RabbitMQ, Flyway, Docker, GitHub Actions |
+| **Machine Learning** | Python, PyTorch, scikit-learn, OpenCV, Streamlit |
 
 ---
 
-<!-- Footer Wave Banner -->
+### 📬 Say hello
+
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,50:8b5cf6,100:ec4899&height=100&section=footer" width="100%"/>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hau05.ruan@gmail.com">
+    <img src="https://img.shields.io/badge/Email-hau05.ruan%40gmail.com-f4b625?style=for-the-badge&logo=gmail&logoColor=1b2f7a&labelColor=f6efd6" alt="Email" />
+  </a>
+  <a href="https://github.com/hao05dev">
+    <img src="https://img.shields.io/badge/GitHub-hao05dev-1b2f7a?style=for-the-badge&logo=github&logoColor=f6efd6" alt="GitHub" />
+  </a>
+  <a href="https://www.facebook.com/nguyen.hao.230457/">
+    <img src="https://img.shields.io/badge/Facebook-Nguy%E1%BB%85n_H%C3%A0o-2c56c4?style=for-the-badge&logo=facebook&logoColor=f6efd6" alt="Facebook" />
+  </a>
 </p>
+
+<p align="center"><i>painted in code, under a swirling sky 🌻</i></p>
