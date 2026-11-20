@@ -1,12 +1,11 @@
 <div align="center">
 
-  <!-- Banner: the swirling-sky sunflower painting -->
-  <img src="./painting.webp" alt="Swirling blue sky over a sunflower field, with a painter at an easel" width="100%" />
+  <img src="./readme/sky.webp" alt="Swirling blue sky with birds" width="100%" />
 
   <h1>Xin chào, I'm Nguyễn Hoàng Hào 🌻</h1>
 
   <a href="https://github.com/hao05dev">
-    <img src="https://readme-typing-svg.demolab.com?font=Fraunces&weight=600&size=22&duration=3200&pause=900&color=2C56C4&center=true&vCenter=true&width=560&lines=Full-stack+Developer;Spring+Boot+%C2%B7+React+%C2%B7+PostgreSQL;IT+student+%40+Can+Tho+University" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fraunces&weight=600&size=22&duration=3200&pause=900&color=F4B625&center=true&vCenter=true&width=560&lines=Full-stack+Developer;Spring+Boot+%C2%B7+React+%C2%B7+PostgreSQL;IT+student+%40+Can+Tho+University" alt="Typing SVG" />
   </a>
 
   <p>
@@ -18,13 +17,17 @@
 
 </div>
 
+<img src="./readme/painter.webp" alt="A painter at an easel in a sunflower field" align="right" width="240" />
+
 I build web systems end to end — **Spring Boot** APIs, **React** front-ends, **PostgreSQL** schemas — and ship them with **Docker**. Most of what I make starts from a real workflow: a clinic, an internship office, a restaurant floor.
 
 - 🎓 Studying Information Technology at **Can Tho University (CTU)**
 - 🔨 Building **InternLink** — the graduation-internship portal for CICT
 - 🧭 Map the workflow → model the data → build API & UI → ship with Docker & CI
 
----
+<br clear="right" />
+
+<img src="./readme/horizon.webp" alt="" width="100%" />
 
 ### 🖌️ Selected work
 
@@ -39,7 +42,7 @@ I build web systems end to end — **Spring Boot** APIs, **React** front-ends, *
 
 **On the side — machine learning:** [Old Photo Colorization](https://github.com/hao05dev/oldPhoto_Colorization) (U-Net / Pix2Pix, PyTorch) · [Phishing Website Detection](https://github.com/hao05dev/phishing_websites) (Random Forest, scikit-learn, Streamlit)
 
----
+<img src="./readme/field.webp" alt="" width="100%" />
 
 ### 🎨 Palette — tools I've worked with
 
@@ -58,7 +61,7 @@ I build web systems end to end — **Spring Boot** APIs, **React** front-ends, *
 | **Data & Infra** | PostgreSQL, MySQL, Redis, RabbitMQ, Flyway, Docker, GitHub Actions |
 | **Machine Learning** | Python, PyTorch, scikit-learn, OpenCV, Streamlit |
 
----
+<img src="./readme/horizon.webp" alt="" width="100%" />
 
 ### 📬 Say hello
 
@@ -75,3 +78,5 @@ I build web systems end to end — **Spring Boot** APIs, **React** front-ends, *
 </p>
 
 <p align="center"><i>painted in code, under a swirling sky 🌻</i></p>
+
+<img src="./readme/field.webp" alt="" width="100%" />
