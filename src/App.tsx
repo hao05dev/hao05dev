@@ -1,24 +1,18 @@
 import React from 'react';
-import { PaintFilters } from './components/Paint';
-import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Work } from './components/Work';
-import { Stack } from './components/Stack';
-import { Contact } from './components/Contact';
+import { Features } from './components/Features';
+import { Footer } from './components/Footer';
 
-export const App: React.FC = () => (
-  <>
-    <PaintFilters />
-    <Nav />
-    <main>
+export const App: React.FC = () => {
+  return (
+    <main className="min-h-screen bg-black text-white selection:bg-[#DEDBC8] selection:text-black">
       <Hero />
       <About />
-      <Work />
-      <Stack />
+      <Features />
+      <Footer />
     </main>
-    <Contact />
-  </>
-);
+  );
+};
 
 export default App;

@@ -1,63 +1,57 @@
 import React from 'react';
-import { GraduationCap, Hammer, Route } from 'lucide-react';
-import { SectionTitle, Reveal } from './Section';
-import { Swirl, BrushEdge } from './Paint';
+import { WordsPullUpMultiStyle, TextSegment } from './WordsPullUpMultiStyle';
+import { ScrollRevealedParagraph } from './AnimatedLetter';
 
-const facts = [
+const aboutHeadingSegments: TextSegment[] = [
   {
-    icon: GraduationCap,
-    title: 'Studying',
-    body: 'Information Technology at Can Tho University (CTU).',
-    dab: 'bg-sky',
+    text: 'I am Nguyen Hoang Hao,',
+    className: 'font-normal text-[#E1E0CC]',
   },
   {
-    icon: Hammer,
-    title: 'Building now',
-    body: 'InternLink — the internship portal for CICT, with a Spring Boot 3 / Next.js stack.',
-    dab: 'bg-sunflower',
+    text: 'a creative full-stack engineer.',
+    className: 'italic font-serif text-primary',
   },
   {
-    icon: Route,
-    title: 'How I work',
-    body: 'Map the real workflow, model the data, then build API and UI — shipped with Docker and CI.',
-    dab: 'bg-terracotta',
+    text: 'I build modern web architectures, intuitive user experiences, and intelligent AI solutions.',
+    className: 'font-normal text-[#E1E0CC]',
   },
 ];
 
-export const About: React.FC = () => (
-  <section id="about" className="grain relative overflow-hidden bg-canvas px-5 pt-20 pb-32 sm:px-8 sm:pt-28 sm:pb-40">
-    <Swirl className="absolute -right-32 -top-24 h-[26rem] w-[26rem] opacity-30" colors={['#f4b625', '#c7801a', '#f6efd6']} />
+const aboutBioText =
+  'Over the last several years, I have developed modern web platforms, e-commerce applications like 3Mien Restaurant, streaming services like Movie ChiuChiu, and machine learning models for image restoration and security. Combining artistic design with clean, scalable code, I build digital experiences that leave a lasting imprint.';
 
-    <div className="relative mx-auto max-w-6xl">
-      <SectionTitle kicker="01 — about" title="Code, one stroke at a time." />
+export const About: React.FC = () => {
+  return (
+    <section id="about" className="relative w-full bg-black py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto bg-[#101010] rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-16 lg:p-20 text-center border border-white/5 relative overflow-hidden shadow-2xl">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="grid gap-5 md:grid-cols-3">
-        {facts.map((f, i) => (
-          <Reveal key={f.title} delay={i * 0.1}>
-            <article className="relative h-full p-6 sm:p-7">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-cream shadow-[6px_8px_0_rgb(90_58_23/0.18)]"
-                style={{ filter: 'url(#rough-soft)' }}
-              />
-              <div className="relative">
-                <span className="relative mb-4 inline-flex h-11 w-11 items-center justify-center">
-                  <span
-                    aria-hidden="true"
-                    className={`absolute inset-0 rounded-full ${f.dab} opacity-80`}
-                    style={{ filter: 'url(#rough-edge)' }}
-                  />
-                  <f.icon className="relative h-5 w-5 text-ink" />
-                </span>
-                <h3 className="font-display text-xl font-semibold text-ultramarine">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/75">{f.body}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+        {/* Small Top Label */}
+        <div className="mb-6 sm:mb-8 md:mb-10">
+          <span className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.25em] font-medium px-3 py-1 rounded-full border border-primary/20 bg-primary/5 inline-block">
+            Engineering &amp; Visual Arts
+          </span>
+        </div>
+
+        {/* Main Heading with Multi-Style WordsPullUp */}
+        <div className="max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16">
+          <WordsPullUpMultiStyle
+            segments={aboutHeadingSegments}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] sm:leading-[0.95]"
+          />
+        </div>
+
+        {/* Body paragraph with progressive character opacity scroll reveal */}
+        <div className="max-w-2xl mx-auto">
+          <ScrollRevealedParagraph
+            text={aboutBioText}
+            className="text-[#DEDBC8] text-xs sm:text-sm md:text-base leading-relaxed tracking-wide font-light"
+          />
+        </div>
       </div>
-    </div>
+    </section>
+  );
+};
 
-    <BrushEdge color="#1b2f7a" className="absolute bottom-0 left-0 z-10" />
-  </section>
-);
+export default About;
